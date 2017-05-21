@@ -6,6 +6,7 @@ Simple Quote machine
 
 - HTML5
 - CSS3
+  - FontAwesome
 - JavaScript
   - jQuery
   - Ajax
