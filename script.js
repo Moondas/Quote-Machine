@@ -8,7 +8,7 @@ function getRGB() {
 
 function colorize(rgb) {
   var rgb = rgb || getRGB();
-  var elms = [".quote-text", ".quote-author"];
+  var elms = ["#quote-text", "#quote-author"];
   for (var i = 0; i < elms.length; i++) {
     $(elms[i]).css("color", rgb);
   }
@@ -18,8 +18,8 @@ function colorize(rgb) {
 
 function getQuote() {
   $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1", function(json){
-    $(".quote-text").html("<span>" + json[0].content.replace(/<[^>]+>/gm,'') + "</span>");
-    $(".quote-author").html(json[0].title);
+    $("#quote-text").html("<span>" + json[0].content.replace(/<[^>]+>/gm,'') + "</span>");
+    $("#quote-author").html(json[0].title);
   });
 }
 
@@ -30,14 +30,14 @@ $(document).ready(function() {
   colorize(rgb);
   $("#new-quote").on('click', function(){
     var rgb = getRGB();
-    $(".quote-text").fadeOut(500);
-    $(".quote-author").fadeOut(500);
+    $("#quote-text").fadeOut(500);
+    $("#quote-author").fadeOut(500);
     getQuote();
     colorize(rgb);    
-    $(".quote-text").fadeIn(500);
-    $(".quote-author").fadeIn(500);
+    $("#quote-text").fadeIn(500);
+    $("#quote-author").fadeIn(500);
   });
   $(".fa-twitter").on('click', function() {
-    window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + '"' + $(".quote-text").text() + '"' + ' - ' + $(".quote-author").text());
+    window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + '"' + $("#quote-text").text() + '"' + ' - ' + $("#quote-author").text());
   });
 });
