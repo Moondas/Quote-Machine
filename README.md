@@ -1,6 +1,6 @@
 # Quote-Machine
 
-Simple Quote machine
+Ajax based random quote machine
 
 ## Built with
 
